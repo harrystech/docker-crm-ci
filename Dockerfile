@@ -64,5 +64,11 @@ RUN sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/
     && sudo apt-get clean \
     && sudo rm -rf /var/lib/apt/lists/*
 
+# Install PIP & AWS CLI
+RUN sudo curl -O https://bootstrap.pypa.io/get-pip.py \
+    && python3 get-pip.py --user \
+    && echo "PATH=~/.local/bin:$PATH" >> ~/.bash_profile \
+    && /home/harrys/.local/bin/pip install awscli --upgrade --user
+
 # Add harrys user to the docker group
 RUN sudo usermod -aG docker harrys
