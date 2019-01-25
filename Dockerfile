@@ -18,7 +18,7 @@ ENV SCALA_VERSION=${SCALA_VERSION}
 # Install baseline utility packages
 RUN apt-get update \
     && apt-get install -y --fix-broken \
-    && apt-get install -y --no-install-recommends dirmngr python curl sudo gnupg apt-transport-https git ssh tar gzip lsb-release software-properties-common awscli bc \
+    && apt-get install -y --no-install-recommends dirmngr python curl sudo gnupg apt-transport-https git ssh tar gzip lsb-release software-properties-common awscli bc postgresql-client \
     && apt-get upgrade -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
